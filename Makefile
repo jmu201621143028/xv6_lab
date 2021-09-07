@@ -152,7 +152,7 @@ UPROGS=\
 	$U/_sleep\
 	$U/_pingpong\
 	$U/_primes\
-
+	$U/_find\
 
 ifeq ($(LAB),syscall)
 UPROGS += \
@@ -217,6 +217,10 @@ qemu: $K/kernel fs.img
 qemu-gdb: $K/kernel .gdbinit fs.img
 	@echo "*** Now run 'gdb' in another window." 1>&2
 	$(QEMU) $(QEMUOPTS) -S $(QEMUGDB)
+
+gdb-debug: $K/kernel .gdbinit fs.img
+	gdb-multiarch -ex "file kernel/kernel" \
+				  -ex "target remote localhost:26000"
 
 ##
 ##  FOR testing lab grading script
