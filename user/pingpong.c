@@ -10,7 +10,7 @@ int main(){
         
         // child
         read(p[0], recv_buf, 5);
-        printf("%d, received %s\n", getpid(), recv_buf);
+        printf("%d: received %s\n", getpid(), recv_buf);
         close(p[0]);
 
         write(p[1], "pong", 4);
@@ -23,7 +23,7 @@ int main(){
 
         wait(0);
         read(p[0], recv_buf, 5);
-        printf("%d, received %s\n", getpid(), recv_buf);
+        printf("%d: received %s\n", getpid(), recv_buf);
         close(p[0]);
     }
     
