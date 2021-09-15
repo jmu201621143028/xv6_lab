@@ -4,9 +4,7 @@
 #include "user/user.h"
 
 
-int trace(int s){
-  return 0;
-}
+
 int
 main(int argc, char *argv[])
 {
