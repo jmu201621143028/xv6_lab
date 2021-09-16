@@ -153,6 +153,7 @@ static char *syscall_name[] = {
 [SYS_link]    "link",
 [SYS_mkdir]   "mkdir",
 [SYS_close]   "close",
+[SYS_trace]   "trace",
 };
 
 void
