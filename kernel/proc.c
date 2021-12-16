@@ -694,3 +694,18 @@ procdump(void)
     printf("\n");
   }
 }
+
+uint64 process_num(void)
+{
+  uint64 ret = 0;
+  for (int i = 0; i < NPROC; i++)
+  {
+    acquire(&proc[i].lock);        //记得加锁
+    if (proc[i].state != UNUSED)   //判断条件
+    {
+      ret++;
+    }
+    release(&proc[i].lock);        //记得释放锁
+  }
+  return ret;
+}

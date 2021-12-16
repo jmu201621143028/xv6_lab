@@ -116,8 +116,8 @@ sys_info(void)
     return -1;
   }
   struct sysinfo info;
-  info.freemem = 0;
-  info.nproc = 0;
+  info.freemem = freemem();
+  info.nproc = process_num();
 
   struct proc *p = myproc();
   if (copyout(p->pagetable, user_agrs_addr, (char *)&info, sizeof(info)) < 0)
